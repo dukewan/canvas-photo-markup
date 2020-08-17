@@ -1,4 +1,5 @@
 import { Editor } from './lib/editor'
+import { Tool } from './lib/tool'
 
 export class PhotoEditor {
   private editor: Editor;
@@ -18,7 +19,24 @@ export class PhotoEditor {
     window.addEventListener('mouseup', (e) => {
       this.editor.onEnd(e)
     })
+
+    document.querySelectorAll('#tools > div').forEach((ele) => {
+      ele.addEventListener('click', () => {
+        this.chooseTool((ele as HTMLElement).dataset.tool)
+      })
+    })
+
+    document.getElementById('clear').addEventListener('click', () => {
+      this.editor.clear()
+    })
+  }
+
+  chooseTool(name: string) {
+    const tool = this.editor.getToolByName(name)
+    if (tool) {
+      this.editor.chooseTool(tool)
+    }
   }
 }
 
-new PhotoEditor()
+const photoEditor = new PhotoEditor()

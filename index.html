@@ -19,12 +19,12 @@
       background-color: #fff;
     }
 
-    .tool {
+    #tools {
       display: flex;
       margin-top: 20px;
     }
 
-    .tool div {
+    #tools div {
       flex-basis: 40px;
       font-size: 24px;
       align-items: center;
@@ -36,22 +36,22 @@
   <div class="editor">
     <div class="action">
       <div class="stack">
-        <button class="clear">Clear</button>
+        <button class="clear" id="clear">Clear</button>
       </div>
       <div class="destination">
         <button class="save">Save</button>
       </div>
     </div>
     <canvas id="demo" width="600px" height="400px"></canvas>
-    <div class="tool">
-      <div class="arrow">↖️</div>
-      <div class="rectangle">🔲</div>
-      <div class="ellipsis">⭕</div>
-      <div class="pen">🖊️</div>
-      <div class="text">🇦</div>
-      <div class="mosaic">👀</div>
-      <div class="color">🎨</div>
-      <div class="diameter">📏</div>
+    <div id="tools">
+      <div class="arrow" data-tool="arrow">↖️</div>
+      <div class="rectangle" data-tool="rectangle">🔲</div>
+      <div class="ellipsis" data-tool="ellipsis">⭕</div>
+      <div class="pen" data-tool="pen">🖊️</div>
+      <div class="text" data-tool="text">🇦</div>
+      <div class="mosaic" data-tool="mosaic">👀</div>
+      <div class="color" data-tool="color">🎨</div>
+      <div class="diameter" data-tool="diameter">📏</div>
     </div>
   </div>
 

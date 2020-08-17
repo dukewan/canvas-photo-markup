@@ -45,6 +45,32 @@ export class Editor {
     this.currentTool = this.arrowTool
   }
 
+  public clear() {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+  }
+
+  public getToolByName(name: string): Tool | undefined {
+    switch (name) {
+      case 'arrow':
+        return this.arrowTool
+      case 'ellipsis':
+        return this.ellipsisTool
+      case 'rectangle':
+        return this.rectangleTool
+      case 'pen':
+        return this.penTool
+      case 'mosaic':
+        return this.mosaicTool
+      case 'text':
+        return this.textTool
+      case 'color':
+        return this.colorTool
+      case 'diameter':
+        return this.diameterTool
+    }
+    return undefined
+  }
+
   public chooseTool(tool: Tool) {
     this.currentTool = tool
     this.currentTool.color = this.color
