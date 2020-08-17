@@ -11,7 +11,7 @@ A photo markup editor based on HTML5 canvas.
 + [x] Ellipsis tool
 + [ ] Mosaic tool
 + [ ] Text tool
-+ [ ] Color tool
++ [x] Color tool
 + [x] Diameter tool
 + [ ] Photo processing
 + [x] Choose tool

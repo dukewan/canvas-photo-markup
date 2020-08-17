@@ -6,6 +6,8 @@ export class PhotoEditor {
   private editor: Editor;
   private diameterConfig: HTMLElement
   private diameterDisplay: HTMLElement
+  private colorConfig: HTMLElement
+  private colorDisplay: HTMLElement
   constructor() {
     this.editor = new Editor({
       id: 'demo'
@@ -13,6 +15,8 @@ export class PhotoEditor {
 
     this.diameterConfig = document.getElementById('diameter-config')
     this.diameterDisplay = document.getElementById('diameter-display')
+    this.colorConfig = document.getElementById('color-config')
+    this.colorDisplay = document.getElementById('color-display')
 
     this.editor.canvas.addEventListener('mousedown', (e) => {
       this.editor.onStart(e)
@@ -46,6 +50,14 @@ export class PhotoEditor {
       this.diameterDisplay.setAttribute('style',
         `width:${value * 2}px;height:${value * 2}px;`)
     })
+
+    this.colorConfig.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).classList.contains('color')) {
+        const value = (e.target as HTMLElement).dataset.color
+        this.editor.setColor(value)
+        this.colorDisplay.setAttribute('style', `background-color:${value};`)
+      }
+    })
   }
 
   chooseTool(name: string) {
@@ -57,6 +69,11 @@ export class PhotoEditor {
       this.diameterConfig.setAttribute('style', 'display: block;');
     } else {
       this.diameterConfig.setAttribute('style', 'display: none;');
+    }
+    if (name === 'color') {
+      this.colorConfig.setAttribute('style', 'display: flex;');
+    } else {
+      this.colorConfig.setAttribute('style', 'display: none;');
     }
   }
 }

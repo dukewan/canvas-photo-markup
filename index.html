@@ -41,7 +41,7 @@
     }
 
     #tools>div.selected {
-      background-color: deepskyblue;
+      background-color: #D2D4D6;
     }
 
     #diameter-config {
@@ -61,6 +61,27 @@
     .diameter-inner {
       border-radius: 50%;
       background-color: black;
+    }
+
+    #color-config {
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #color-config .color {
+      margin: 0 4px;
+      border-radius: 4px;
+      width: 24px;
+      height: 24px;
+      border: 1px solid gray;
+    }
+
+    #color-display {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      border: 1px solid gray;
     }
   </style>
 </head>
@@ -83,7 +104,10 @@
       <div class="pen" data-tool="pen">🖊️</div>
       <div class="text" data-tool="text">🇦</div>
       <div class="mosaic" data-tool="mosaic">👀</div>
-      <div class="color" data-tool="color">🎨</div>
+      <div class="color" data-tool="color">
+        <div style="background-color: #EE517C;" id="color-display">
+        </div>
+      </div>
       <div class="diameter" data-tool="diameter">
         <div id="diameter-bubble">
           <div class="diameter-inner" style="width: 2px;height: 2px;"
@@ -94,10 +118,32 @@
     </div>
     <div id="config">
       <input type="range" min="2" max="10" value="2" id="diameter-config" />
+      <div id="color-config">
+        <div class="color" style="background-color: #ffffff;"
+          data-color="#ffffff">
+        </div>
+        <div class="color" style="background-color: #000000;"
+          data-color="#000000">
+        </div>
+        <div class="color" style="background-color: #EE517C;"
+          data-color="#EE517C">
+        </div>
+        <div class="color" style="background-color: #FFF95A;"
+          data-color="#FFF95A">
+        </div>
+        <div class="color" style="background-color: #51BC42;"
+          data-color="#51BC42">
+        </div>
+        <div class="color" style="background-color: #4FC1FA;"
+          data-color="#4FC1FA">
+        </div>
+        <div class="color" style="background-color: #1F4DBB;"
+          data-color="#1F4DBB">
+        </div>
+      </div>
     </div>
-  </div>
 
-  <script src="./dist/bundle.js"></script>
+    <script src="./dist/bundle.js"></script>
 </body>
 
 </html>
