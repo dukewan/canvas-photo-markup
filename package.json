@@ -1,22 +1,22 @@
 {
-  "name": "canvas-photo-editor",
+  "name": "canvas-photo-markup",
   "version": "1.0.0",
-  "description": "A photo editor based on HTML5 canvas.",
+  "description": "A photo markup editor based on HTML5 canvas.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dukewan/canvas-photo-editor.git"
+    "url": "git+https://github.com/dukewan/canvas-photo-markup.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dukewan/canvas-photo-editor/issues"
+    "url": "https://github.com/dukewan/canvas-photo-markup/issues"
   },
-  "homepage": "https://github.com/dukewan/canvas-photo-editor#readme",
+  "homepage": "https://github.com/dukewan/canvas-photo-markup#readme",
   "devDependencies": {
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",

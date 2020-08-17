@@ -3,9 +3,58 @@
 
 <head>
   <title>Canvas photo editor demo</title>
+  <style>
+    .editor {
+      width: 600px;
+    }
+
+    .action {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    #demo {
+      border: 1px solid gray;
+      background-color: #fff;
+    }
+
+    .tool {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .tool div {
+      flex-basis: 40px;
+      font-size: 24px;
+      align-items: center;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="editor">
+    <div class="action">
+      <div class="stack">
+        <button class="clear">Clear</button>
+      </div>
+      <div class="destination">
+        <button class="save">Save</button>
+      </div>
+    </div>
+    <canvas id="demo" width="600px" height="400px"></canvas>
+    <div class="tool">
+      <div class="arrow">↖️</div>
+      <div class="rectangle">🔲</div>
+      <div class="ellipsis">⭕</div>
+      <div class="pen">🖊️</div>
+      <div class="text">🇦</div>
+      <div class="mosaic">👀</div>
+      <div class="color">🎨</div>
+      <div class="diameter">📏</div>
+    </div>
+  </div>
+
   <script src="./dist/bundle.js"></script>
 </body>
 
