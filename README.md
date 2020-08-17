@@ -6,6 +6,7 @@ A photo markup editor based on HTML5 canvas.
 ## TODO
 
 + [x] Arrow tool
++ [x] Pen tool
 + [ ] Rectangle tool
 + [ ] Ellipsis tool
 + [ ] Mosaic tool
