@@ -5,7 +5,7 @@
   <title>Canvas photo editor demo</title>
   <style>
     .editor {
-      width: 600px;
+      width: 100%;
     }
 
     .action {
@@ -19,15 +19,23 @@
       background-color: #fff;
     }
 
+    .footer {
+      position: sticky;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
     #config {
       display: flex;
       justify-content: center;
-      margin-top: 10px;
     }
 
     #tools {
       display: flex;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     #tools>div {
@@ -91,54 +99,57 @@
     <div class="action">
       <div class="stack">
         <button class="clear" id="clear">Clear</button>
+        <input type="file" accept="image/*" id="choose-file" />
       </div>
       <div class="destination">
         <button class="save">Save</button>
       </div>
     </div>
     <canvas id="demo" width="600px" height="400px"></canvas>
-    <div id="tools">
-      <div class="arrow selected" data-tool="arrow">↖️</div>
-      <div class="rectangle" data-tool="rectangle">🔲</div>
-      <div class="ellipsis" data-tool="ellipsis">⭕</div>
-      <div class="pen" data-tool="pen">🖊️</div>
-      <div class="text" data-tool="text">🇦</div>
-      <div class="mosaic" data-tool="mosaic">👀</div>
-      <div class="color" data-tool="color">
-        <div style="background-color: #EE517C;" id="color-display">
-        </div>
-      </div>
-      <div class="diameter" data-tool="diameter">
-        <div id="diameter-bubble">
-          <div class="diameter-inner" style="width: 2px;height: 2px;"
-            id="diameter-display">
+    <div class="footer">
+      <div id="config">
+        <input type="range" min="2" max="10" value="2" id="diameter-config" />
+        <div id="color-config">
+          <div class="color" style="background-color: #ffffff;"
+            data-color="#ffffff">
+          </div>
+          <div class="color" style="background-color: #000000;"
+            data-color="#000000">
+          </div>
+          <div class="color" style="background-color: #EE517C;"
+            data-color="#EE517C">
+          </div>
+          <div class="color" style="background-color: #FFF95A;"
+            data-color="#FFF95A">
+          </div>
+          <div class="color" style="background-color: #51BC42;"
+            data-color="#51BC42">
+          </div>
+          <div class="color" style="background-color: #4FC1FA;"
+            data-color="#4FC1FA">
+          </div>
+          <div class="color" style="background-color: #1F4DBB;"
+            data-color="#1F4DBB">
           </div>
         </div>
       </div>
-    </div>
-    <div id="config">
-      <input type="range" min="2" max="10" value="2" id="diameter-config" />
-      <div id="color-config">
-        <div class="color" style="background-color: #ffffff;"
-          data-color="#ffffff">
+      <div id="tools">
+        <div class="arrow selected" data-tool="arrow">↖️</div>
+        <div class="rectangle" data-tool="rectangle">🔲</div>
+        <div class="ellipsis" data-tool="ellipsis">⭕</div>
+        <div class="pen" data-tool="pen">🖊️</div>
+        <div class="text" data-tool="text">🇦</div>
+        <div class="mosaic" data-tool="mosaic">👀</div>
+        <div class="color" data-tool="color">
+          <div style="background-color: #EE517C;" id="color-display">
+          </div>
         </div>
-        <div class="color" style="background-color: #000000;"
-          data-color="#000000">
-        </div>
-        <div class="color" style="background-color: #EE517C;"
-          data-color="#EE517C">
-        </div>
-        <div class="color" style="background-color: #FFF95A;"
-          data-color="#FFF95A">
-        </div>
-        <div class="color" style="background-color: #51BC42;"
-          data-color="#51BC42">
-        </div>
-        <div class="color" style="background-color: #4FC1FA;"
-          data-color="#4FC1FA">
-        </div>
-        <div class="color" style="background-color: #1F4DBB;"
-          data-color="#1F4DBB">
+        <div class="diameter" data-tool="diameter">
+          <div id="diameter-bubble">
+            <div class="diameter-inner" style="width: 2px;height: 2px;"
+              id="diameter-display">
+            </div>
+          </div>
         </div>
       </div>
     </div>

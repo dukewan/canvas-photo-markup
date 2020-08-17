@@ -77,6 +77,17 @@ export class Editor {
     this.currentTool.width = this.width
   }
 
+  public setImage(img: HTMLImageElement) {
+    if (img.width > this.canvas.width) {
+      this.canvas.height = img.height
+        * (this.canvas.width / img.width)
+    } else {
+      this.canvas.width = img.width
+      this.canvas.height = img.height
+    }
+    this.context.drawImage(img, 0, 0, this.canvas.width, this.canvas.height)
+  }
+
   public setColor(color: string) {
     this.color = color
   }

@@ -8,15 +8,19 @@ export class PhotoEditor {
   private diameterDisplay: HTMLElement
   private colorConfig: HTMLElement
   private colorDisplay: HTMLElement
+  private inputFile: HTMLInputElement
   constructor() {
     this.editor = new Editor({
       id: 'demo'
     })
 
+    this.editor.canvas.width = document.body.clientWidth
+
     this.diameterConfig = document.getElementById('diameter-config')
     this.diameterDisplay = document.getElementById('diameter-display')
     this.colorConfig = document.getElementById('color-config')
     this.colorDisplay = document.getElementById('color-display')
+    this.inputFile = document.getElementById('choose-file') as HTMLInputElement
 
     this.editor.canvas.addEventListener('mousedown', (e) => {
       this.editor.onStart(e)
@@ -58,6 +62,10 @@ export class PhotoEditor {
         this.colorDisplay.setAttribute('style', `background-color:${value};`)
       }
     })
+
+    this.inputFile.addEventListener('change', () => {
+      this.chooseFile()
+    })
   }
 
   chooseTool(name: string) {
@@ -74,6 +82,21 @@ export class PhotoEditor {
       this.colorConfig.setAttribute('style', 'display: flex;');
     } else {
       this.colorConfig.setAttribute('style', 'display: none;');
+    }
+  }
+
+  chooseFile() {
+    if (this.inputFile.files.length > 0) {
+      const fileReader = new FileReader()
+      fileReader.readAsDataURL(this.inputFile.files[0])
+      fileReader.onload = () => {
+        const img = new Image()
+        img.src = fileReader.result as string
+        img.onload = () => {
+          this.editor.canvas.width = document.body.clientWidth
+          this.editor.setImage(img)
+        }
+      }
     }
   }
 }
