@@ -22,18 +22,26 @@
     #config {
       display: flex;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     #tools {
       display: flex;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     #tools>div {
       flex-basis: 40px;
       font-size: 24px;
       align-items: center;
+      text-align: center;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #tools>div.selected {
+      background-color: deepskyblue;
     }
 
     #diameter-config {
@@ -68,9 +76,6 @@
       </div>
     </div>
     <canvas id="demo" width="600px" height="400px"></canvas>
-    <div id="config">
-      <input type="range" min="2" max="10" value="2" id="diameter-config" />
-    </div>
     <div id="tools">
       <div class="arrow" data-tool="arrow">↖️</div>
       <div class="rectangle" data-tool="rectangle">🔲</div>
@@ -86,6 +91,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div id="config">
+      <input type="range" min="2" max="10" value="2" id="diameter-config" />
     </div>
   </div>
 

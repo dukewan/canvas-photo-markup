@@ -29,6 +29,10 @@ export class PhotoEditor {
     document.querySelectorAll('#tools > div').forEach((ele) => {
       ele.addEventListener('click', () => {
         this.chooseTool((ele as HTMLElement).dataset.tool)
+        document.querySelectorAll('#tools > div').forEach((toolEle) => {
+          toolEle.classList.remove('selected')
+        })
+        ele.classList.add('selected')
       })
     })
 
