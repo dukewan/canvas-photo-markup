@@ -42,7 +42,7 @@ export class Editor {
     this.textTool = new Text(toolOptions)
     this.diameterTool = new Diameter(toolOptions)
     this.colorTool = new Color(toolOptions)
-    this.currentTool = this.penTool
+    this.currentTool = this.arrowTool
   }
 
   public chooseTool(tool: Tool) {

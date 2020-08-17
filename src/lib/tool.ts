@@ -16,12 +16,14 @@ export class Tool {
   end(e: MouseEvent) { }
 
   drawLine(x1: number, y1: number, x2: number, y2: number) {
-    this.context.beginPath();
-    this.context.strokeStyle = this.color;
-    this.context.lineWidth = this.width;
-    this.context.moveTo(x1, y1);
-    this.context.lineTo(x2, y2);
-    this.context.stroke();
-    this.context.closePath();
+    this.context.save()
+    this.context.beginPath()
+    this.context.strokeStyle = this.color
+    this.context.lineWidth = this.width
+    this.context.moveTo(x1, y1)
+    this.context.lineTo(x2, y2)
+    this.context.closePath()
+    this.context.stroke()
+    this.context.restore()
   }
 }
