@@ -8,7 +8,7 @@ A photo markup editor based on HTML5 canvas.
 + [x] Arrow tool
 + [x] Pen tool
 + [x] Rectangle tool
-+ [ ] Ellipsis tool
++ [x] Ellipsis tool
 + [ ] Mosaic tool
 + [ ] Text tool
 + [ ] Color tool

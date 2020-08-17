@@ -15,29 +15,40 @@ export class Tool {
   move(e: MouseEvent) { }
   end(e: MouseEvent) { }
 
-  drawLine(x1: number, y1: number, x2: number, y2: number) {
+  drawFunc(draw: Function) {
     this.context.save()
     this.context.beginPath()
     this.context.strokeStyle = this.color
     this.context.lineWidth = this.width
 
-    this.context.moveTo(x1, y1)
-    this.context.lineTo(x2, y2)
+    draw()
 
-    this.context.closePath()
     this.context.stroke()
     this.context.restore()
   }
 
+  drawLine(x1: number, y1: number, x2: number, y2: number) {
+    this.drawFunc(() => {
+      this.context.moveTo(x1, y1)
+      this.context.lineTo(x2, y2)
+      this.context.closePath()
+    })
+  }
+
   drawRect(x1: number, y1: number, x2: number, y2: number) {
-    this.context.save()
-    this.context.beginPath()
-    this.context.strokeStyle = this.color
-    this.context.lineWidth = this.width
+    this.drawFunc(() => {
+      this.context.rect(x1, y1, Math.abs(x2 - x1), Math.abs(y2 - y1))
+    })
+  }
 
-    this.context.rect(x1, y1, Math.abs(x2 - x1), Math.abs(y2 - y1))
-
-    this.context.stroke()
-    this.context.restore()
+  drawEllipsis(x1: number, y1: number, x2: number, y2: number) {
+    this.drawFunc(() => {
+      const centerX = (x1 + x2) / 2
+      const centerY = (y1 + y2) / 2
+      const radiusX = Math.abs(x1 - x2) / 2
+      const radiusY = Math.abs(y1 - y2) / 2
+      this.context.ellipse(centerX, centerY, radiusX, radiusY,
+        0, 0, 2 * Math.PI)
+    })
   }
 }
