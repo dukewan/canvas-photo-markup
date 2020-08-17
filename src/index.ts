@@ -48,6 +48,10 @@ export class PhotoEditor {
       this.editor.clear()
     })
 
+    document.getElementById('save').addEventListener('click', () => {
+      this.editor.save()
+    })
+
     this.diameterConfig.addEventListener('input', (e) => {
       const value = Number((e.target as HTMLInputElement).value)
       this.editor.setWidth(value)
@@ -87,14 +91,16 @@ export class PhotoEditor {
 
   chooseFile() {
     if (this.inputFile.files.length > 0) {
+      const file = this.inputFile.files[0]
       const fileReader = new FileReader()
-      fileReader.readAsDataURL(this.inputFile.files[0])
+      fileReader.readAsDataURL(file)
       fileReader.onload = () => {
         const img = new Image()
         img.src = fileReader.result as string
         img.onload = () => {
+          const name = file.name.substring(0, file.name.lastIndexOf('.'))
           this.editor.canvas.width = document.body.clientWidth
-          this.editor.setImage(img)
+          this.editor.setImage(img, name)
         }
       }
     }

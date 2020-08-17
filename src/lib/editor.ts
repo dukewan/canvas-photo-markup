@@ -22,6 +22,8 @@ export class Editor {
   private context: CanvasRenderingContext2D
   private color: string = 'red'
   private width: number = 2
+  private image: HTMLImageElement
+  private filename: string
 
   constructor(options: EditorOptions) {
     this.canvas = document.getElementById(options.id) as HTMLCanvasElement
@@ -47,6 +49,19 @@ export class Editor {
 
   public clear() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
+  }
+
+  public save() {
+    const data = this.canvas.toDataURL('image/png')
+    const filename = this.filename
+      + `_${new Date().getFullYear()}`
+      + `${new Date().getMonth()}`
+      + `${new Date().getDate()}`
+      + `${new Date().getHours()}`
+      + `${new Date().getMinutes()}`
+      + `.png`
+    this.downloadImage(data, filename)
   }
 
   public getToolByName(name: string): Tool | undefined {
@@ -77,7 +92,9 @@ export class Editor {
     this.currentTool.width = this.width
   }
 
-  public setImage(img: HTMLImageElement) {
+  public setImage(img: HTMLImageElement, filename: string) {
+    this.image = img
+    this.filename = filename
     if (img.width > this.canvas.width) {
       this.canvas.height = img.height
         * (this.canvas.width / img.width)
@@ -106,5 +123,13 @@ export class Editor {
 
   public onEnd(e: MouseEvent) {
     this.currentTool.end(e)
+  }
+
+  public downloadImage(data: string, filename = 'untitled.png') {
+    const a = document.createElement('a')
+    a.href = data
+    a.download = filename
+    document.body.appendChild(a)
+    a.click()
   }
 }
