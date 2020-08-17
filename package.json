@@ -1,0 +1,26 @@
+{
+  "name": "canvas-photo-editor",
+  "version": "1.0.0",
+  "description": "A photo editor based on HTML5 canvas.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dukewan/canvas-photo-editor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dukewan/canvas-photo-editor/issues"
+  },
+  "homepage": "https://github.com/dukewan/canvas-photo-editor#readme",
+  "devDependencies": {
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
