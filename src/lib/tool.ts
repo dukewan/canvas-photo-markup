@@ -37,7 +37,11 @@ export class Tool {
 
   drawRect(x1: number, y1: number, x2: number, y2: number) {
     this.drawFunc(() => {
-      this.context.rect(x1, y1, Math.abs(x2 - x1), Math.abs(y2 - y1))
+      const X1 = Math.min(x1, x2)
+      const Y1 = Math.min(y1, y2)
+      const X2 = Math.max(x1, x2)
+      const Y2 = Math.max(y1, y2)
+      this.context.rect(X1, Y1, X2 - X1, Y2 - Y1)
     })
   }
 
