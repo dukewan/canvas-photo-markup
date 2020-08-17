@@ -77,6 +77,14 @@ export class Editor {
     this.currentTool.width = this.width
   }
 
+  public setColor(color: string) {
+    this.color = color
+  }
+
+  public setWidth(width: number) {
+    this.width = width
+  }
+
   public onStart(e: MouseEvent) {
     this.currentTool.start(e)
   }

@@ -19,15 +19,40 @@
       background-color: #fff;
     }
 
-    #tools {
+    #config {
       display: flex;
+      justify-content: center;
       margin-top: 20px;
     }
 
-    #tools div {
+    #tools {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    #tools>div {
       flex-basis: 40px;
       font-size: 24px;
       align-items: center;
+    }
+
+    #diameter-config {
+      display: none;
+    }
+
+    #diameter-bubble {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid gray;
+    }
+
+    .diameter-inner {
+      border-radius: 50%;
+      background-color: black;
     }
   </style>
 </head>
@@ -43,6 +68,9 @@
       </div>
     </div>
     <canvas id="demo" width="600px" height="400px"></canvas>
+    <div id="config">
+      <input type="range" min="2" max="10" value="2" id="diameter-config" />
+    </div>
     <div id="tools">
       <div class="arrow" data-tool="arrow">↖️</div>
       <div class="rectangle" data-tool="rectangle">🔲</div>
@@ -51,7 +79,13 @@
       <div class="text" data-tool="text">🇦</div>
       <div class="mosaic" data-tool="mosaic">👀</div>
       <div class="color" data-tool="color">🎨</div>
-      <div class="diameter" data-tool="diameter">📏</div>
+      <div class="diameter" data-tool="diameter">
+        <div id="diameter-bubble">
+          <div class="diameter-inner" style="width: 2px;height: 2px;"
+            id="diameter-display">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
