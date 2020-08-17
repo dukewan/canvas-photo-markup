@@ -21,7 +21,7 @@ export class Editor {
   public canvas: HTMLCanvasElement
   private context: CanvasRenderingContext2D
   private color: string = 'red'
-  private width: number = 5
+  private width: number = 2
 
   constructor(options: EditorOptions) {
     this.canvas = document.getElementById(options.id) as HTMLCanvasElement
