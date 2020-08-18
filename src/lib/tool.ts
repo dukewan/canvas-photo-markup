@@ -45,6 +45,14 @@ export class Tool {
     })
   }
 
+  drawRectFilled(
+    color: string, x: number, y: number, w: number, h: number) {
+    this.drawFunc(() => {
+      this.context.fillStyle = color
+      this.context.fillRect(x, y, w, h)
+    })
+  }
+
   drawEllipsis(x1: number, y1: number, x2: number, y2: number) {
     this.drawFunc(() => {
       const centerX = (x1 + x2) / 2

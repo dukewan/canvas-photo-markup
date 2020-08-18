@@ -9,8 +9,8 @@ A photo markup editor based on HTML5 canvas.
 + [x] Pen tool
 + [x] Rectangle tool
 + [x] Ellipsis tool
-+ [ ] Mosaic tool
-+ [ ] Text tool
++ [x] Mosaic tool
++ [x] Text tool
 + [x] Color tool
 + [x] Diameter tool
 + [x] Photo processing
@@ -19,3 +19,4 @@ A photo markup editor based on HTML5 canvas.
 + [x] Save
 + [ ] Undo / redo changes
 + [ ] Clip tool
++ [ ] Remember settings
