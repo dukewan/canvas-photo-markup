@@ -30,4 +30,8 @@ export class Shape extends Tool {
       this.isDrawing = false
     }
   }
+
+  public setBeginState(state: ImageData) {
+    this.beginState = state
+  }
 }

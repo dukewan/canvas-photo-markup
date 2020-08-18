@@ -9,6 +9,9 @@ export class PhotoEditor {
   private colorConfig: HTMLElement
   private colorDisplay: HTMLElement
   private inputFile: HTMLInputElement
+  private textConfig: HTMLInputElement
+  private textConfigContainer: HTMLElement
+  private textConfirm: HTMLElement
   constructor() {
     this.editor = new Editor({
       id: 'demo'
@@ -21,6 +24,9 @@ export class PhotoEditor {
     this.colorConfig = document.getElementById('color-config')
     this.colorDisplay = document.getElementById('color-display')
     this.inputFile = document.getElementById('choose-file') as HTMLInputElement
+    this.textConfig = document.getElementById('text-config') as HTMLInputElement
+    this.textConfigContainer = document.getElementById('text-config-container')
+    this.textConfirm = document.getElementById('text-confirm')
 
     this.editor.canvas.addEventListener('mousedown', (e) => {
       this.editor.onStart(e)
@@ -50,6 +56,22 @@ export class PhotoEditor {
 
     document.getElementById('save').addEventListener('click', () => {
       this.editor.save()
+    })
+
+    this.textConfirm.addEventListener('click', () => {
+      this.textConfig.value = ''
+      this.editor.onChange('')
+      this.textConfirm.setAttribute('style', 'display: none;');
+    })
+
+    this.textConfig.addEventListener('input', (e) => {
+      const value = (e.target as HTMLInputElement).value
+      this.editor.onChange(value)
+      if (value) {
+        this.textConfirm.setAttribute('style', 'display: block;');
+      } else {
+        this.textConfirm.setAttribute('style', 'display: none;');
+      }
     })
 
     this.diameterConfig.addEventListener('input', (e) => {
@@ -86,6 +108,13 @@ export class PhotoEditor {
       this.colorConfig.setAttribute('style', 'display: flex;');
     } else {
       this.colorConfig.setAttribute('style', 'display: none;');
+    }
+    if (name === 'text') {
+      this.textConfigContainer.setAttribute('style', 'display: flex;');
+    } else {
+      this.textConfig.value = ''
+      this.textConfirm.setAttribute('style', 'display: none;');
+      this.textConfigContainer.setAttribute('style', 'display: none;');
     }
   }
 

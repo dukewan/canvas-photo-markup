@@ -91,6 +91,15 @@
       border-radius: 4px;
       border: 1px solid gray;
     }
+
+    #text-config-container {
+      display: none;
+    }
+
+    #text-confirm {
+      display: none;
+      margin-left: 5px;
+    }
   </style>
 </head>
 
@@ -116,8 +125,7 @@
           <div class="color" style="background-color: #000000;"
             data-color="#000000">
           </div>
-          <div class="color" style="background-color: #EE517C;"
-            data-color="#EE517C">
+          <div class="color" style="background-color: red;" data-color="red">
           </div>
           <div class="color" style="background-color: #FFF95A;"
             data-color="#FFF95A">
@@ -132,6 +140,11 @@
             data-color="#1F4DBB">
           </div>
         </div>
+        <div id="text-config-container">
+          <input type="text" placeholder="Type something new"
+            id="text-config" />
+          <button id="text-confirm">Confirm position</button>
+        </div>
       </div>
       <div id="tools">
         <div class="arrow selected" data-tool="arrow">↖️</div>
@@ -141,7 +154,7 @@
         <div class="text" data-tool="text">🇦</div>
         <div class="mosaic" data-tool="mosaic">👀</div>
         <div class="color" data-tool="color">
-          <div style="background-color: #EE517C;" id="color-display">
+          <div style="background-color: red;" id="color-display">
           </div>
         </div>
         <div class="diameter" data-tool="diameter">

@@ -49,7 +49,9 @@ export class Editor {
 
   public clear() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
-    this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
+    if (this.image) {
+      this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
+    }
   }
 
   public save() {
@@ -90,6 +92,10 @@ export class Editor {
     this.currentTool = tool
     this.currentTool.color = this.color
     this.currentTool.width = this.width
+
+    if (this.currentTool === this.textTool) {
+      this.textTool.change('')
+    }
   }
 
   public setImage(img: HTMLImageElement, filename: string) {
@@ -123,6 +129,12 @@ export class Editor {
 
   public onEnd(e: MouseEvent) {
     this.currentTool.end(e)
+  }
+
+  public onChange(value: any) {
+    if (this.currentTool === this.textTool) {
+      this.textTool.change(value)
+    }
   }
 
   public downloadImage(data: string, filename = 'untitled.png') {

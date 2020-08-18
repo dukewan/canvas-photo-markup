@@ -55,4 +55,12 @@ export class Tool {
         0, 0, 2 * Math.PI)
     })
   }
+
+  drawText(text: string, x: number, y: number) {
+    this.drawFunc(() => {
+      this.context.fillStyle = this.color
+      this.context.font = `${this.width / 10 * 60}px serif`
+      this.context.fillText(text, x, y, this.canvas.width)
+    })
+  }
 }
