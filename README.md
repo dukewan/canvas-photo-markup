@@ -6,8 +6,7 @@ A photo markup editor based on HTML5 canvas.
 
 https://1mhz.me/demo/photo
 
-![Demo](screenshots/demo.png)
-
+![Demo](screenshots/demo.png | width=360)
 
 ## TODO
 
