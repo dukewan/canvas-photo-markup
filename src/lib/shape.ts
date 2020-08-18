@@ -5,7 +5,6 @@ export class Shape extends Tool {
   protected isDrawing: boolean = false
   protected startX: number = 0
   protected startY: number = 0
-  protected beginState: ImageData
   protected debouncedMove = debounce(this.unDebouncedMove, 5)
 
   start(e: MouseEvent | TouchEvent) {

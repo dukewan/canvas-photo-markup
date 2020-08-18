@@ -65,25 +65,6 @@ export class PhotoEditor {
       e.preventDefault()
     })
 
-    // Prevent scrolling when touching the canvas
-    document.body.addEventListener('touchstart', (e) => {
-      if (e.target == this.editor.canvas) {
-        e.preventDefault();
-      }
-    }, false)
-
-    document.body.addEventListener('touchend', (e) => {
-      if (e.target == this.editor.canvas) {
-        e.preventDefault();
-      }
-    }, false)
-
-    document.body.addEventListener('touchmove', (e) => {
-      if (e.target == this.editor.canvas) {
-        e.preventDefault();
-      }
-    }, false)
-
     document.querySelectorAll('#tools > div').forEach((ele) => {
       ele.addEventListener('click', () => {
         this.chooseTool((ele as HTMLElement).dataset.tool)

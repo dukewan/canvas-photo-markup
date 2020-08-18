@@ -1,6 +1,7 @@
 export class Tool {
   protected canvas: HTMLCanvasElement
   protected context: CanvasRenderingContext2D
+  protected beginState: ImageData
   public color: string
   public width: number
 
@@ -85,5 +86,9 @@ export class Tool {
         offsetY: e.touches[0].clientY - rect.top
       }
     }
+  }
+
+  clearBeginState() {
+    this.beginState = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height)
   }
 }

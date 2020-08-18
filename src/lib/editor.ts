@@ -53,6 +53,14 @@ export class Editor {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
     this.states = []
     this.poppedStates = []
+    // Clear begin state of each tool
+    this.arrowTool.clearBeginState()
+    this.ellipsisTool.clearBeginState()
+    this.rectangleTool.clearBeginState()
+    this.penTool.clearBeginState()
+    this.mosaicTool.clearBeginState()
+    this.textTool.clearBeginState()
+
     if (this.image) {
       this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
     }
