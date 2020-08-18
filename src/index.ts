@@ -32,12 +32,30 @@ export class PhotoEditor {
       this.editor.onStart(e)
     })
 
+    this.editor.canvas.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length > 0) {
+        this.editor.onStart(e)
+      }
+    })
+
     this.editor.canvas.addEventListener('mousemove', (e) => {
       this.editor.onMove(e)
     })
 
-    window.addEventListener('mouseup', (e) => {
+    this.editor.canvas.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches.length > 0) {
+        this.editor.onMove(e)
+      }
+    })
+
+    this.editor.canvas.addEventListener('mouseup', (e) => {
       this.editor.onEnd(e)
+    })
+
+    this.editor.canvas.addEventListener('touchend', (e) => {
+      if (e.touches && e.touches.length > 0) {
+        this.editor.onEnd(e)
+      }
     })
 
     document.querySelectorAll('#tools > div').forEach((ele) => {

@@ -8,21 +8,23 @@ export class Shape extends Tool {
   protected beginState: ImageData
   protected debouncedMove = debounce(this.unDebouncedMove, 5)
 
-  start(e: MouseEvent) {
-    this.startX = e.offsetX
-    this.startY = e.offsetY
+  start(e: MouseEvent | TouchEvent) {
+    const { offsetX, offsetY } = this.getOffset(e)
+    this.startX = offsetX
+    this.startY = offsetY
+
     this.isDrawing = true
     this.beginState =
       this.context.getImageData(0, 0, this.canvas.width, this.canvas.height)
   }
 
-  move(e: MouseEvent) {
+  move(e: MouseEvent | TouchEvent) {
     this.debouncedMove(e)
   }
 
-  unDebouncedMove(e: MouseEvent) { }
+  unDebouncedMove(e: MouseEvent | TouchEvent) { }
 
-  end(e: MouseEvent) {
+  end(e: MouseEvent | TouchEvent) {
     if (this.isDrawing) {
       this.unDebouncedMove(e)
       this.startX = 0

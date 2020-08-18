@@ -123,16 +123,16 @@ export class Editor {
     this.width = width
   }
 
-  public onStart(e: MouseEvent) {
+  public onStart(e: MouseEvent | TouchEvent) {
     this.currentTool.start(e)
     this.saveState()
   }
 
-  public onMove(e: MouseEvent) {
+  public onMove(e: MouseEvent | TouchEvent) {
     this.currentTool.move(e)
   }
 
-  public onEnd(e: MouseEvent) {
+  public onEnd(e: MouseEvent | TouchEvent) {
     this.currentTool.end(e)
   }
 

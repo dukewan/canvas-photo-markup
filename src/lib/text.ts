@@ -15,18 +15,20 @@ export class Text extends Shape {
     }
   }
 
-  start(e: MouseEvent) {
+  start(e: MouseEvent | TouchEvent) {
     this.isDrawing = true
   }
 
-  unDebouncedMove(e: MouseEvent) {
+  unDebouncedMove(e: MouseEvent | TouchEvent) {
+    const { offsetX, offsetY } = this.getOffset(e)
+
     if (this.isDrawing) {
       this.context.putImageData(this.beginState, 0, 0)
-      this.drawText(this.str, e.offsetX, e.offsetY)
+      this.drawText(this.str, offsetX, offsetY)
     }
   }
 
-  end(e: MouseEvent) {
+  end(e: MouseEvent | TouchEvent) {
     if (this.isDrawing) {
       this.unDebouncedMove(e)
       this.isDrawing = false

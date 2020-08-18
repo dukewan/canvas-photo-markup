@@ -3,6 +3,15 @@
 
 <head>
   <title>Canvas photo editor demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152"
+    href="assets/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="assets/apple-touch-icon-180x180.png">
   <style>
     .editor {
       width: 100%;
@@ -11,6 +20,11 @@
     .action {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .stack {
       margin-bottom: 20px;
     }
 
@@ -24,7 +38,7 @@
       bottom: 0px;
       left: 0;
       width: 100%;
-      padding: 20px;
+      padding: 20px 0;
       background-color: rgba(255, 255, 255, 0.6);
     }
 

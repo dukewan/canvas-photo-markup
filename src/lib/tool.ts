@@ -11,9 +11,9 @@ export class Tool {
     this.width = options.width
   }
 
-  start(e: MouseEvent) { }
-  move(e: MouseEvent) { }
-  end(e: MouseEvent) { }
+  start(e: MouseEvent | TouchEvent) { }
+  move(e: MouseEvent | TouchEvent) { }
+  end(e: MouseEvent | TouchEvent) { }
 
   drawFunc(draw: Function) {
     this.context.save()
@@ -70,5 +70,20 @@ export class Tool {
       this.context.font = `${this.width / 10 * 60}px serif`
       this.context.fillText(text, x, y, this.canvas.width)
     })
+  }
+
+  getOffset(e: MouseEvent | TouchEvent) {
+    if (e instanceof MouseEvent) {
+      return {
+        offsetX: e.offsetX,
+        offsetY: e.offsetY
+      }
+    } else {
+      const rect = this.canvas.getBoundingClientRect()
+      return {
+        offsetX: e.touches[0].clientX - rect.left,
+        offsetY: e.touches[0].clientY - rect.top
+      }
+    }
   }
 }
