@@ -4,7 +4,8 @@
   "description": "A photo markup editor based on HTML5 canvas.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "build:demo": "webpack && sh build.sh"
   },
   "repository": {
     "type": "git",

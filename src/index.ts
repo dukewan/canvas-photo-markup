@@ -36,6 +36,7 @@ export class PhotoEditor {
       if (e.touches && e.touches.length > 0) {
         this.editor.onStart(e)
       }
+      e.preventDefault();
     })
 
     this.editor.canvas.addEventListener('mousemove', (e) => {
@@ -46,6 +47,7 @@ export class PhotoEditor {
       if (e.touches && e.touches.length > 0) {
         this.editor.onMove(e)
       }
+      e.preventDefault();
     })
 
     this.editor.canvas.addEventListener('mouseup', (e) => {
@@ -56,7 +58,31 @@ export class PhotoEditor {
       if (e.touches && e.touches.length > 0) {
         this.editor.onEnd(e)
       }
+      e.preventDefault();
     })
+
+    this.editor.canvas.addEventListener('touchcancel', (e) => {
+      e.preventDefault()
+    })
+
+    // Prevent scrolling when touching the canvas
+    document.body.addEventListener('touchstart', (e) => {
+      if (e.target == this.editor.canvas) {
+        e.preventDefault();
+      }
+    }, false)
+
+    document.body.addEventListener('touchend', (e) => {
+      if (e.target == this.editor.canvas) {
+        e.preventDefault();
+      }
+    }, false)
+
+    document.body.addEventListener('touchmove', (e) => {
+      if (e.target == this.editor.canvas) {
+        e.preventDefault();
+      }
+    }, false)
 
     document.querySelectorAll('#tools > div').forEach((ele) => {
       ele.addEventListener('click', () => {
