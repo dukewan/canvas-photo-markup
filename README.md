@@ -17,6 +17,6 @@ A photo markup editor based on HTML5 canvas.
 + [x] Choose tool
 + [x] Clear
 + [x] Save
-+ [ ] Undo / redo changes
++ [x] Undo / redo changes
 + [ ] Clip tool
 + [ ] Remember settings

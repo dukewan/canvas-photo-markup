@@ -24,6 +24,8 @@ export class Editor {
   private width: number = 2
   private image: HTMLImageElement
   private filename: string
+  private states: Array<ImageData> = []
+  private poppedStates: Array<ImageData> = []
 
   constructor(options: EditorOptions) {
     this.canvas = document.getElementById(options.id) as HTMLCanvasElement
@@ -121,6 +123,7 @@ export class Editor {
 
   public onStart(e: MouseEvent) {
     this.currentTool.start(e)
+    this.saveState()
   }
 
   public onMove(e: MouseEvent) {
@@ -129,6 +132,10 @@ export class Editor {
 
   public onEnd(e: MouseEvent) {
     this.currentTool.end(e)
+  }
+
+  public saveState() {
+    this.states.push(this.context.getImageData(0, 0, this.canvas.width, this.canvas.height))
   }
 
   public onChange(value: any) {
@@ -143,5 +150,21 @@ export class Editor {
     a.download = filename
     document.body.appendChild(a)
     a.click()
+  }
+
+  public undo() {
+    const state = this.states.pop()
+    if (state) {
+      this.poppedStates.push(state)
+      this.context.putImageData(state, 0, 0)
+    }
+  }
+
+  public redo() {
+    const state = this.poppedStates.pop()
+    if (state) {
+      this.states.push(state)
+      this.context.putImageData(state, 0, 0)
+    }
   }
 }

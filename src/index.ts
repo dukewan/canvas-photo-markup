@@ -58,6 +58,14 @@ export class PhotoEditor {
       this.editor.save()
     })
 
+    document.getElementById('undo').addEventListener('click', () => {
+      this.editor.undo()
+    })
+
+    document.getElementById('redo').addEventListener('click', () => {
+      this.editor.redo()
+    })
+
     this.textConfirm.addEventListener('click', () => {
       this.textConfig.value = ''
       this.editor.onChange('')
