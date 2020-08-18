@@ -2,6 +2,12 @@
  
 A photo markup editor based on HTML5 canvas.
 
+## DEMO
+
+https://1mhz.me/demo/photo
+
+![Demo](screenshots/demo.png)
+
 
 ## TODO
 
