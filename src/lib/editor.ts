@@ -51,6 +51,8 @@ export class Editor {
 
   public clear() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    this.states = []
+    this.poppedStates = []
     if (this.image) {
       this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
     }
